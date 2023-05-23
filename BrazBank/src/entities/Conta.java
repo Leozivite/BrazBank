@@ -8,12 +8,12 @@ private String nome;
 private String Nconta;
 private int CVV;
 private YearMonth v;
-private double dep;
+protected double dep;
 DateTimeFormatter dtf=DateTimeFormatter.ofPattern("MM/yy");
 
 
 public Conta() {
-	super();
+	
 }
 public Conta(String nome, String Nconta, int CVV, YearMonth V,double dep) {
 	this.nome = nome;
