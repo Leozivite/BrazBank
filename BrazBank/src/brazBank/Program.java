@@ -25,7 +25,7 @@ public class Program {
 		double saq = 0;
 		Conta conta = new Conta();
 		do {
-			System.out.println("sua conta e empresarial ou comundo");
+			System.out.println("sua conta e empresarial ou comum");
 			cont = sc.nextLine().toUpperCase();
 			if (cont.equals("EMPRESARIAL")) {
 				emp = 1;
@@ -41,26 +41,31 @@ public class Program {
 					.printf("                               FORMATO= MM/AA%ndigite a data de vensimento do cartao = ");
 			sc.nextLine();
 			String S = sc.nextLine();
+			System.out.println();
 			YearMonth V = YearMonth.parse(S, dtf);
 			conta = new Conta(nome, Nconta, CVV, V, dep);
 			System.out.println(conta);
+			System.out.println();
 			System.out.print("deseja modificar as informacao? ");
+			System.out.println();
 			inf = sc.nextLine().toUpperCase();
 		} while (inf.equals("S") || inf.equals("SIM"));
-		System.out.print("Deseja fazer um deposito? ");
+		System.out.print("deseja enviar um saldo para sua conta ? ");
 		String deposito = sc.nextLine().toUpperCase();
 		if (deposito.equals("S") || deposito.equals("SIM")) {
 			while (deposito.equals("S") || deposito.equals("SIM")) {
-				System.out.print("Quanto voce deseja depositar ? ");
+				System.out.print("Quanto voce deseja transferir para conta ? ");
 				dep = sc.nextDouble();
-				System.out.printf("Deposito realizado com sucesso%nDeseja fazer outro deposito?");
+				conta.deposito(dep);
+				System.out.printf("Deposito realizado com sucesso%n%nDeseja fazer outro deposito ?");
+				sc.nextLine();
 				deposito = sc.nextLine().toUpperCase();
 			}
 		}
-		System.out.printf("%nDeseja fazer um saque? ");
+		System.out.printf("%nDeseja fazer uma transferencia ? ");
 		deposito = sc.nextLine().toUpperCase();
 		if (deposito.equals("S") || deposito.equals("SIM")) {
-			System.out.println("Quanto voce deseja sacar ? ");
+			System.out.println("Quanto voce deseja transferir ? ");
 			saq = sc.nextDouble();
 			conta.Saque(saq);
 		}
